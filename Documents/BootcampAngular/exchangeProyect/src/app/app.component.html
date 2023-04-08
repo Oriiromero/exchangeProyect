@@ -1,0 +1,17 @@
+<div [ngClass]="'container'">
+  <div [ngClass]="'input-container'">
+    <h3> Exchange! </h3>
+    <input type="number" [(ngModel)]="number">
+    <p> Actual change selected: {{selectedRate}}</p>
+  
+  </div>
+  <div [ngClass]="'gallery'">
+    <ul>
+      <li *ngFor="let data of datas | keyvalue" (click)="updateRates(data.key)" [ngClass]="isSelected == true && selectedRate == data.key ? 'selected' : ''">
+          <h5> {{data.key}}:  </h5>
+          <p> {{data.value}} </p>
+          <p> Result: {{number * data.value}}  </p>
+      </li>
+    </ul>
+  </div>
+</div>
